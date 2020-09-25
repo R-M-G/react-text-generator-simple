@@ -4,8 +4,8 @@ import './App.css';
 
 class App extends Component {
   state = {
-    paras: 4,
-    html: true,
+    paras: 10,
+    headers: true,
     text: '',
   };
 
@@ -16,23 +16,23 @@ class App extends Component {
   getSampleText() {
     axios
       .get(
-        'http://hipsterjesus.com/api?paras=' +
+        'http://loripsum.net/api?paras=' +
           this.state.paras +
-          '&html=' +
-          this.state.html
+          '&headers=' +
+          this.state.headers
       )
       .then((response) => {
-        this.setState({ text: response.data.text }, function () {
+        this.setState({ text: response.data }, function () {
           console.log(this.state);
         });
       })
       .catch((err) => {
-        console.log("Error", err)
-      })
+        console.log('Error:', err);
+      });
   }
 
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     return (
       <div className="App">
         <h1>Test Class</h1>

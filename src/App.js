@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Output from '../src/Components/Output';
 import './App.css';
 
 class App extends Component {
   state = {
-    integer: 2,
-    length: 'short',
+    paras: 1,
+    length: 'long',
     headers: 'headers',
     text: '',
   };
@@ -18,13 +19,15 @@ class App extends Component {
     axios
       .get(
         'https://loripsum.net/api/' +
-          this.state.integer + '/' +
-          this.state.length + '/' +
+          this.state.paras +
+          '/' +
+          this.state.length +
+          '/' +
           this.state.headers
       )
       .then((response) => {
         this.setState({ text: response.data }, function () {
-          console.log(this.state.text);
+          console.log(this.state);
         });
       })
       .catch((err) => {
@@ -36,7 +39,7 @@ class App extends Component {
     // console.log(this.state);
     return (
       <div className="App">
-        <h1>Test Class</h1>
+        <Output value={this.state.text} />
       </div>
     );
   }

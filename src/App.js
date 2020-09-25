@@ -10,8 +10,8 @@ import './App.css';
 
 class App extends Component {
   state = {
-    paras: 1,
-    length: 1,
+    paras: null,
+    length: 'short',
     headers: 'headers',
     caps: false,
     text: '',
@@ -74,12 +74,6 @@ class App extends Component {
               onChange={this.changeParagraphs.bind(this)}
             />
 
-            <label>Paragraph Size: </label>
-            <ParaSize
-              value={this.state.length}
-              onChange={this.changeLength.bind(this)}
-            />
-
             <label>Headers</label>
             <HeaderSelection
               value={this.state.headers}
@@ -90,6 +84,11 @@ class App extends Component {
             <AllCaps
               value={this.state.caps}
               onChange={this.changeUnl.bind(this)}
+            />
+            <label>Paragraph Size: </label>
+            <ParaSize
+              value={this.state.length}
+              onChange={this.changeLength.bind(this)}
             />
           </div>
         </form>

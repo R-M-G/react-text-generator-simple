@@ -3,13 +3,14 @@ import axios from 'axios';
 import Output from './Components/Output/Output';
 import ParasSelect from './Components/Controls/ParasSelect';
 import ParaSize from './Components/Controls/ParaSize';
+import HeaderSelection from './Components/Controls/HeaderSelection';
 import './App.css';
 
 class App extends Component {
   state = {
     paras: 1,
-    length: 'medium',
-    headers: 'headers',
+    length: null,
+    headers: null,
     text: '',
   };
 
@@ -45,6 +46,10 @@ class App extends Component {
     this.setState({ length: lengthX }, this.getSampleText);
   }
 
+  changeHeaders(headersX) {
+    this.setState({ headers: headersX }, this.getSampleText);
+  }
+
   render() {
     // console.log(this.state);
     return (
@@ -59,12 +64,19 @@ class App extends Component {
               value={this.state.paras}
               onChange={this.changeParagraphs.bind(this)}
             />
+
+            <label>Paragraph Size: </label>
+            <ParaSize
+              value={this.state.length}
+              onChange={this.changeLength.bind(this)}
+            />
+
+            <label>Headers</label>
+            <HeaderSelection
+              value={this.state.headers}
+              onChange={this.changeHeaders.bind(this)}
+            />
           </div>
-          <label>Paragraph Size: </label>
-          <ParaSize
-            value={this.state.length}
-            onChange={this.changeLength.bind(this)}
-          />
         </form>
         <Output value={this.state.text} />
       </div>

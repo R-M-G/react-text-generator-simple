@@ -10,7 +10,7 @@ import './App.css';
 
 class App extends Component {
   state = {
-    paras: null,
+    paras: 1,
     length: 'short',
     headers: 'headers',
     caps: false,

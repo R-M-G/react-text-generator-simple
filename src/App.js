@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Output from '../src/Components/Output';
+import Output from './Components/Output/Output';
+import ParasSelect from './Components/Controls/ParasSelect';
 import './App.css';
 
 class App extends Component {
   state = {
-    paras: 1,
-    length: 'long',
-    headers: 'headers',
+    paras: 0,
+    length: '',
+    headers: '',
     text: '',
   };
 
@@ -38,7 +39,15 @@ class App extends Component {
   render() {
     // console.log(this.state);
     return (
-      <div className="App">
+      <div className="App container">
+        <h1>React JS Simple Text Generator</h1>
+        <hr />
+        <form className="form-inline">
+          <div className="form-group">
+            <label>Number of Paragraphs</label>
+            <ParasSelect value={this.state.paras} />
+          </div>
+        </form>
         <Output value={this.state.text} />
       </div>
     );

@@ -4,8 +4,10 @@ class Output extends Component {
   state = {
     value: this.props.text,
   };
+
   render() {
-    return <div className="output">{this.props.value}</div>;
+    return <div className="output">
+      {this.props.value}</div>;
   }
 }
 

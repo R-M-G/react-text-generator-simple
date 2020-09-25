@@ -6,9 +6,9 @@ import './App.css';
 
 class App extends Component {
   state = {
-    paras: 0,
-    length: '',
-    headers: '',
+    paras: 1,
+    length: 'medium',
+    headers: 'headers',
     text: '',
   };
 
@@ -36,6 +36,10 @@ class App extends Component {
       });
   }
 
+  changeParagraphs(x) {
+    this.setState({ paras: x }, this.getSampleText);
+  }
+
   render() {
     // console.log(this.state);
     return (
@@ -44,8 +48,11 @@ class App extends Component {
         <hr />
         <form className="form-inline">
           <div className="form-group">
-            <label>Number of Paragraphs</label>
-            <ParasSelect value={this.state.paras} />
+            <label>Number of Paragraphs:</label>
+            <ParasSelect
+              value={this.state.paras}
+              onChange={this.changeParagraphs.bind(this)}
+            />
           </div>
         </form>
         <Output value={this.state.text} />

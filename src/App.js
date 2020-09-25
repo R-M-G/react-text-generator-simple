@@ -4,8 +4,9 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className="App">
         <h1>Test Class</h1>
+        <h2></h2>
       </div>
     );
   }

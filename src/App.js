@@ -63,7 +63,7 @@ class App extends Component {
     // console.log(this.state);
     return (
       <div className="App container">
-        <h1>React JS Simple Text Generator</h1>
+        <h1 className="heading-center">React JS Simple Text Generator</h1>
         <hr />
 
         <form className="form-inline">

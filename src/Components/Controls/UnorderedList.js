@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-class HeaderSelection extends Component {
+class UnorderedList extends Component {
   state = {
-    value: this.props.headers,
+    value: this.props.unl,
   };
 
   onChange(e) {
@@ -15,14 +15,12 @@ class HeaderSelection extends Component {
     return (
       <div>
         <select className="form-control" onChange={this.onChange.bind(this)}>
-          <option value="headers">Yes</option>
-          <option value="null">Medium</option>
-          <option value="long">Long</option>
-          <option value="verylong">Very Long</option>
+          <option value="true">Yes</option>
+          <option value="false">No</option>
         </select>
       </div>
     );
   }
 }
 
-export default HeaderSelection;
+export default UnorderedList;

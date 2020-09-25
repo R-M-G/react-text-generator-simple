@@ -4,6 +4,8 @@ import Output from './Components/Output/Output';
 import ParasSelect from './Components/Controls/ParasSelect';
 import ParaSize from './Components/Controls/ParaSize';
 import HeaderSelection from './Components/Controls/HeaderSelection';
+import UnorderedList from './Components/Controls/UnorderedList';
+
 import './App.css';
 
 class App extends Component {
@@ -11,6 +13,7 @@ class App extends Component {
     paras: 1,
     length: null,
     headers: null,
+    unl: null,
     text: '',
   };
 
@@ -26,7 +29,9 @@ class App extends Component {
           '/' +
           this.state.length +
           '/' +
-          this.state.headers
+          this.state.headers +
+          '/' +
+          this.state.ul
       )
       .then((response) => {
         this.setState({ text: response.data }, function () {
@@ -48,6 +53,10 @@ class App extends Component {
 
   changeHeaders(headersX) {
     this.setState({ headers: headersX }, this.getSampleText);
+  }
+
+  changeUnl(unlX) {
+    this.setState({ unl: unlX }, this.getSampleText);
   }
 
   render() {
@@ -76,8 +85,15 @@ class App extends Component {
               value={this.state.headers}
               onChange={this.changeHeaders.bind(this)}
             />
+
+            <label>Unordered List</label>
+            <UnorderedList
+              value={this.state.unl}
+              onChange={this.changeUnl.bind(this)}
+            />
           </div>
         </form>
+        <hr />
         <Output value={this.state.text} />
       </div>
     );

@@ -15,7 +15,7 @@ class AllCaps extends Component {
     return (
       <div>
         <select className="form-control" onChange={this.onChange.bind(this)}>
-          <option value="false">No</option>
+          <option value="null">No</option>
           <option value="allcaps">Yes</option>
         </select>
       </div>

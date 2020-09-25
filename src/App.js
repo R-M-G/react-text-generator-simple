@@ -12,7 +12,7 @@ class App extends Component {
   state = {
     paras: 1,
     length: 1,
-    headers: false,
+    headers: 'headers',
     caps: false,
     text: '',
   };

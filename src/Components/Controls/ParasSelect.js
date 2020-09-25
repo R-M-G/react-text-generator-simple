@@ -17,6 +17,7 @@ class ParasSelect extends Component {
         <input
           className="form-control"
           type="number"
+          min="1"
           max="10"
           value={this.state.value}
           onChange={this.onChange.bind(this)}

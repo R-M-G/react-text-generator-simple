@@ -16,9 +16,7 @@ class HeaderSelection extends Component {
       <div>
         <select className="form-control" onChange={this.onChange.bind(this)}>
           <option value="headers">Yes</option>
-          <option value="null">Medium</option>
-          <option value="long">Long</option>
-          <option value="verylong">Very Long</option>
+          <option value="null">No</option>
         </select>
       </div>
     );

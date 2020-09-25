@@ -4,16 +4,16 @@ import Output from './Components/Output/Output';
 import ParasSelect from './Components/Controls/ParasSelect';
 import ParaSize from './Components/Controls/ParaSize';
 import HeaderSelection from './Components/Controls/HeaderSelection';
-import UnorderedList from './Components/Controls/UnorderedList';
+import AllCaps from './Components/Controls/AllCaps';
 
 import './App.css';
 
 class App extends Component {
   state = {
     paras: 1,
-    length: null,
-    headers: null,
-    unl: null,
+    length: 1,
+    headers: false,
+    caps: false,
     text: '',
   };
 
@@ -31,7 +31,7 @@ class App extends Component {
           '/' +
           this.state.headers +
           '/' +
-          this.state.ul
+          this.state.caps
       )
       .then((response) => {
         this.setState({ text: response.data }, function () {
@@ -55,8 +55,8 @@ class App extends Component {
     this.setState({ headers: headersX }, this.getSampleText);
   }
 
-  changeUnl(unlX) {
-    this.setState({ unl: unlX }, this.getSampleText);
+  changeUnl(capsX) {
+    this.setState({ caps: capsX }, this.getSampleText);
   }
 
   render() {
@@ -86,9 +86,9 @@ class App extends Component {
               onChange={this.changeHeaders.bind(this)}
             />
 
-            <label>Unordered List</label>
-            <UnorderedList
-              value={this.state.unl}
+            <label>Caps</label>
+            <AllCaps
+              value={this.state.caps}
               onChange={this.changeUnl.bind(this)}
             />
           </div>

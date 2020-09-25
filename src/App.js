@@ -5,15 +5,15 @@ import ParasSelect from './Components/Controls/ParasSelect';
 import ParaSize from './Components/Controls/ParaSize';
 import HeaderSelection from './Components/Controls/HeaderSelection';
 import AllCaps from './Components/Controls/AllCaps';
-
-import './App.css';
+import PlainText from './Components/Controls/PlainText';
 
 class App extends Component {
   state = {
     paras: 1,
     length: 'short',
     headers: 'headers',
-    caps: false,
+    caps: null,
+    style: 'plaintext',
     text: '',
   };
 
@@ -31,7 +31,9 @@ class App extends Component {
           '/' +
           this.state.headers +
           '/' +
-          this.state.caps
+          this.state.caps +
+          '/' +
+          this.state.style
       )
       .then((response) => {
         this.setState({ text: response.data }, function () {
@@ -57,6 +59,10 @@ class App extends Component {
 
   changeUnl(capsX) {
     this.setState({ caps: capsX }, this.getSampleText);
+  }
+
+  changeTextType(textTypeX) {
+    this.setState({ style: textTypeX }, this.getSampleText);
   }
 
   render() {
@@ -85,10 +91,17 @@ class App extends Component {
               value={this.state.caps}
               onChange={this.changeUnl.bind(this)}
             />
+
             <label>Paragraph Size: </label>
             <ParaSize
               value={this.state.length}
               onChange={this.changeLength.bind(this)}
+            />
+
+            <label>Plaintext</label>
+            <PlainText
+              value={this.state.textStyle}
+              onChange={this.changeTextType.bind(this)}
             />
           </div>
         </form>

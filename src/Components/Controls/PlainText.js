@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-class AllCaps extends Component {
+class PlainText extends Component {
   state = {
-    value: this.props.caps,
+    value: this.props.style,
   };
 
   onChange(e) {
@@ -15,12 +15,12 @@ class AllCaps extends Component {
     return (
       <div>
         <select className="form-control" onChange={this.onChange.bind(this)}>
+          <option value="plaintext">Yes</option>
           <option value="null">No</option>
-          <option value="allcaps">Yes</option>
         </select>
       </div>
     );
   }
 }
 
-export default AllCaps;
+export default PlainText;

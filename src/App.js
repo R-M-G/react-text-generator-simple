@@ -4,8 +4,9 @@ import './App.css';
 
 class App extends Component {
   state = {
-    paras: 10,
-    headers: true,
+    integer: 2,
+    length: 'short',
+    headers: 'headers',
     text: '',
   };
 
@@ -16,14 +17,14 @@ class App extends Component {
   getSampleText() {
     axios
       .get(
-        'http://loripsum.net/api?paras=' +
-          this.state.paras +
-          '&headers=' +
+        'https://loripsum.net/api/' +
+          this.state.integer + '/' +
+          this.state.length + '/' +
           this.state.headers
       )
       .then((response) => {
         this.setState({ text: response.data }, function () {
-          console.log(this.state);
+          console.log(this.state.text);
         });
       })
       .catch((err) => {

@@ -17,7 +17,7 @@ One page simple text generator using Lorem Ipsum generator API
 ## Use
 
 1. Simple random lorem ipsum text generator with 5 style variables.
-2. CD into folder and start npm.
+2. Clone, CD into folder and start npm.
 
 ## Built With
 

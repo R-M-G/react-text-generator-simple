@@ -100,7 +100,7 @@ class App extends Component {
 
             <label>Plaintext</label>
             <PlainText
-              value={this.state.textStyle}
+              value={this.state.style}
               onChange={this.changeTextType.bind(this)}
             />
           </div>
